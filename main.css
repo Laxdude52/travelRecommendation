@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sidenav {
+    height: 100%; 
+    width: 20px; 
+    margin-top:20px;
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+    background-color: #add8e6; 
+    overflow-x: hidden; 
+    padding-top: 15px;
+    display: flex;
+    align-items: center; 
+  }
+
+  .container {
+    margin-top: 6px;
+    margin-left: 23px; 
+    padding: 0px 10px;
+  }
+
+.logoBox {
+    height:auto;
+    width: 20px;
+}
+.sideLogo {
+    width:20px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+nav {
+    background-color: #add8e6;
+    padding: 0px;
+    z-index: 1; 
+    top: 0; 
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height:20px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
