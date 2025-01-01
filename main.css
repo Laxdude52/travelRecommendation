@@ -36,7 +36,12 @@
 }
 
 .vertsplit {
-    
+    display: flex;
+    gap: 10px;
+}
+
+.aboutStory {
+    width: 60%;
 }
 
 nav {
