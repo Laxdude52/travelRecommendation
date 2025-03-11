@@ -70,3 +70,32 @@ nav {
     color: #333;
     font-weight: bold;
   }
+
+  .bgImg {
+    background-size: cover;
+  }
+
+  #dropdown{
+    background-color: #55555595;
+    position: absolute;
+    width: 30rem;
+    height: auto;
+    padding: 1rem 1rem;
+    top: 70px; 
+    right: 20px;
+    margin-top: .5rem;
+    border-radius: 10px;
+    border: 1px solid white;
+    display: none;
+    z-index: 1000; 
+}
+
+.dropdown-header{
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-img{
+    width: 100%;
+}
