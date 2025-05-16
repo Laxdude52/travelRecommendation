@@ -16,29 +16,26 @@ const clearsearch = () => {
     console.log("Clearing");
   };
   
-  btnClear.addEventListener("click", clearsearch);
+btnClear.addEventListener("click", clearsearch);
 
-  const showResult = (name, img, info) => {
-    if (mydiv.style.display === "none" || mydiv.style.display === "") {
-      mydiv.style.display = "block";
-    } else {
-      mydiv.style.display = "none";
-    }
-    result.innerHTML = `
+const showResult = (name, img, info) => {
+    mydiv.style.display = "block";
+
+    result.insertAdjacentHTML("afterbegin",`
       <h2 class="title">${name}</h2>
       <img class="search-img" src=${img} alt="sofia">
       <p class="description">${info}</p>
-    `;
+    `);
   };
   
-  const closeDropdown = () => {
+const closeDropdown = () => {
     mydiv.style.display = "none";
     query.value = "";
   };
   
-  close.addEventListener("click", closeDropdown);
+close.addEventListener("click", closeDropdown);
   
-  const searchError = () => {
+const searchError = () => {
     if (mydiv.style.display === "none" || mydiv.style.display === "") {
       mydiv.style.display = "block";
     } else {
@@ -48,39 +45,37 @@ const clearsearch = () => {
     result.innerHTML = `<p class="notfound">Sorry we can't find your search</p>`;
   };
   
-  fetch("travel_recommendation_api.json")
+fetch("travel_recommendation_api.json")
     .then((res) => res.json())
     .then((data) => {
       const search = () => {
         let searchQuery = searchWords.value.toLowerCase();
         let notfound = true;
-  
+        result.innerHTML = "";
+
         data.countries.map((country) => {
             if(searchQuery.includes("count")) {
-                country.cities.array.forEach(element => {
+                country.cities.forEach(city => {
                     showResult(city.name, city.imageUrl, city.description);
                     notfound = false;
                 });
             }
         });
   
-        data.temples.map((temple) => {
             if (searchQuery.includes("temple")) {
-                temple.array.forEach(element => {
+                data.temples.forEach(temple => {
                     showResult(temple.name, temple.imageUrl, temple.description);
                     notfound = false;
                 })
             }
-        });
   
-        data.beaches.map((beach) => {
             if (searchQuery.includes("beach")) {
-                beach.array.forEach(element => {
+                data.beaches.forEach(beach => {
                     showResult(beach.name, beach.imageUrl, beach.description);
                     notfound = false;  
                 })
             }
-        });
+
   
         if (notfound) {
           searchError();
